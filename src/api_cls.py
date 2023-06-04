@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 import requests
+import os
+from vacansy import Vacancy
 
 
 class AbstractApiClass(ABC):
@@ -17,6 +19,7 @@ class HH_API(AbstractApiClass):
     Получаем данные с hh.ru
     """
 
+    @property
     def get_vacancies(self):
         """
         Метод для получения вакансий с сайта HH.ru.
