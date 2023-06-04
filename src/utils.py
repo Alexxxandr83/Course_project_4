@@ -19,3 +19,20 @@ def get_sorted_vacancies(filename: str):
 
     sorted_vacancies = sorted(vacancies, key=lambda x: x['name'])
     return sorted_vacancies
+
+
+def get_vacancies_with_description(filename: str, keywords: list):
+    """Фильтрует вакансии, оставляя только те, у которых описание (description)"""
+    with open(filename, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    filtered_vacancies = []
+    for vacancy in data:
+        description = vacancy.get('description')
+        if description:
+            description = description.lower()
+            for keyword in keywords:
+                if keyword.lower() in description:
+                    filtered_vacancies.append(vacancy)
+                    break
+    return filtered_vacancies
