@@ -36,3 +36,11 @@ def get_vacancies_with_description(filename: str, keywords: list):
                     filtered_vacancies.append(vacancy)
                     break
     return filtered_vacancies
+
+def format_vacancy(vacancy: dict):
+    """Форматирует информацию о вакансии в виде строки с указанием названия, ссылки, зарплаты (от и до), и описания."""
+    return f"Название: {vacancy['name']}\n" \
+           f"Ссылка: {vacancy['url']}\n" \
+           f"Зарплата от: {vacancy['salary_from']}\n" \
+           f"Зарплата до: {vacancy['salary_to']}\n" \
+           f"Описание: {vacancy['description']}\n"
