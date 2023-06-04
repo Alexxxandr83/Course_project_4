@@ -3,7 +3,7 @@ import json
 from abc import ABC, abstractmethod
 
 
-class AbstractJsonSaver(ABC):
+class AbstractFilemanager(ABC):
     """
     Абстрактный базовый класс, определяет интерфейс для управления файлами с вакансиями
     """
@@ -21,10 +21,10 @@ class AbstractJsonSaver(ABC):
         pass
 
 
-class JsonSaver(AbstractJsonSaver):
-      """Конкретная реализация класса vacancyfilemanager для работы с json-файлами."""
+class Filemanager(AbstractFilemanager):
 
     def __init__(self, filename: str):
+        """Конкретная реализация класса vacancyfilemanager для работы с json-файлами."""
         self.filename = filename
 
     def add_vacancy(self, vacancy):
