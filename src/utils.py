@@ -11,3 +11,11 @@ def get_top_n_vacancies(filename: str, n: int):
 
     return filtered_vacancies[:n]
 
+
+def get_sorted_vacancies(filename: str):
+    """Сортирует вакансии по имени (алфавитный порядок)"""
+    with open(filename, 'r', encoding='utf-8') as file:
+        vacancies = json.load(file)
+
+    sorted_vacancies = sorted(vacancies, key=lambda x: x['name'])
+    return sorted_vacancies
